@@ -77,6 +77,11 @@ h1 {
   font-weight: 500;
   color: #901C1C;
 }
+.tags:hover, .tags:focus {
+  background-color: #901C1C;
+  color: #FFF;
+  border: 0.05rem solid #901C1C;
+}
 
 .name {
   font-size: 3.6rem;

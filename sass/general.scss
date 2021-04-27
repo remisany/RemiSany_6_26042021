@@ -29,6 +29,11 @@ h1 {
     font-size: 1.2rem;
     font-weight: 500;
     color: $primary;
+    &:hover, &:focus {
+        background-color: $primary;
+        color: #FFF;
+        border: .05rem solid $primary;
+      }
 }
 
 .name {
