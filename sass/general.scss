@@ -7,6 +7,10 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
     font-size: 10px;
 }
 
+a {
+    cursor: pointer;
+}
+
 body {
     margin: 4.2rem 10rem;
 }
@@ -17,7 +21,8 @@ h1 {
 }
 
 .tags {
-    margin: 0 .5rem;
+    margin-right: .5rem;
+    margin-left: .5rem;
     padding: .3rem .7rem;
     border: .05rem solid $border;
     border-radius: 1.1rem;
@@ -29,9 +34,24 @@ h1 {
 .name {
     font-size: 3.6rem;
     color: $secondary;
+    margin-top: 2rem;
+    line-height: 4.6rem;
+}
+
+.city, .country {
+    font-size: 1.3rem;
+    color: $primary;
+    line-height: 1.7rem;
+}
+
+.tagline {
+    line-height: 1.3rem;
+    margin-top: .3rem;
 }
 
 .price {
     font-size: .9rem;
     color: $tertiary;
+    line-height: 1.2rem;
+    margin-top: .3rem;
 }
