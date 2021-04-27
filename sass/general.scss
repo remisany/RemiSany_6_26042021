@@ -1,2 +1,37 @@
 /*Reset CSS*/
-html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}a{text-decoration:none}
+
+*{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+}
+
+body {
+    margin: 4.2rem 10rem;
+}
+
+h1 {
+    font-size: 3.6rem;
+    color: $primary;
+}
+
+.tags {
+    margin: 0 .5rem;
+    padding: .3rem .7rem;
+    border: .05rem solid $border;
+    border-radius: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $primary;
+}
+
+.name {
+    font-size: 3.6rem;
+    color: $secondary;
+}
+
+.price {
+    font-size: .9rem;
+    color: $tertiary;
+}

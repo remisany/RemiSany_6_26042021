@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>FishEye</title>
 </head>
@@ -14,37 +16,37 @@
             <img role="img" src="Images/Logo/FishEye.svg" alt="Logo de Fisheye">
         </a>
         <nav role="navigation" aria-label="main navigation">
-            <ul>
-                <li><a href="#">#Portrait</a></li>
-                <li><a href="#">#Art</a></li>
-                <li><a href="#">#Fashion</a></li>
-                <li><a href="#">#Architecture</a></li>
-                <li><a href="#">#Travel</a></li>
-                <li><a href="#">#Sport</a></li>
-                <li><a href="#">#Animals</a></li>
-                <li><a href="#">#Events</a></li>
+            <ul class=tags-container>
+                <li><a href="#" class="tags">#Portrait</a></li>
+                <li><a href="#" class="tags">#Art</a></li>
+                <li><a href="#" class="tags">#Fashion</a></li>
+                <li><a href="#" class="tags">#Architecture</a></li>
+                <li><a href="#" class="tags">#Travel</a></li>
+                <li><a href="#" class="tags">#Sport</a></li>
+                <li><a href="#" class="tags">#Animals</a></li>
+                <li><a href="#" class="tags">#Events</a></li>
             </ul>
         </nav>
         <h1>Nos photographes</h1>
     </header>
 
     <main>
-        <article>
+        <article class="photographer">
             <a>
-                <img role="img" src="Images/Mimi/Portrait_Nora.jpg" alt="Mimi Keel">
-                <h2>Mimi Keel</h2>
+                <img class="portrait" role="img" src="Images/Photographers ID Photos/MimiKeel.jpg" alt="Portrait Mimi Keel">
+                <h2 class="name">Mimi Keel</h2>
             </a>
             <div>
                 <p>London, UK</p>
-                <p>Voir le beau dans le quotidien</p>
-                <p>400€/jour</p>
+                <p class="tagline">Voir le beau dans le quotidien</p>
+                <p class="price">400€/jour</p>
             </div>
-            <nav aria-label="Tag navigation">
-                <ul>
-                    <li><a href="#">#Portrait</a></li>
-                    <li><a href="#">#Events</a></li>
-                    <li><a href="#">#Travel</a></li>
-                    <li><a href="#">#Animals</a></li>            
+            <nav aria-label="tags navigation">
+                <ul class=tags-container>
+                    <li><a href="#" class="tags">#Portrait</a></li>
+                    <li><a href="#" class="tags">#Events</a></li>
+                    <li><a href="#" class="tags">#Travel</a></li>
+                    <li><a href="#" class="tags">#Animals</a></li>            
                 </ul>
             </nav>
         </article>
