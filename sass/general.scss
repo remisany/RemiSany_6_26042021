@@ -20,7 +20,7 @@ a {
     font-size: 1.2rem;
     font-weight: 500;
     color: $primary;
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
         background-color: $primary;
         color: #FFF;
         border: .05rem solid $primary;
