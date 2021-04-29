@@ -11,15 +11,6 @@ a {
     cursor: pointer;
 }
 
-body {
-    margin: 4.2rem 10rem;
-}
-
-h1 {
-    font-size: 3.6rem;
-    color: $primary;
-}
-
 .tags {
     margin-right: .5rem;
     margin-left: .5rem;
@@ -33,30 +24,9 @@ h1 {
         background-color: $primary;
         color: #FFF;
         border: .05rem solid $primary;
-      }
-}
-
-.name {
-    font-size: 3.6rem;
-    color: $secondary;
-    margin-top: 2rem;
-    line-height: 4.6rem;
-}
-
-.city, .country, .citycountry {
-    font-size: 1.3rem;
-    color: $primary;
-    line-height: 1.7rem;
-}
-
-.tagline {
-    line-height: 1.3rem;
-    margin-top: .3rem;
-}
-
-.price {
-    font-size: .9rem;
-    color: $tertiary;
-    line-height: 1.2rem;
-    margin-top: .3rem;
+    }
+    &-container{
+        display: flex;
+        justify-content: center;
+    }
 }

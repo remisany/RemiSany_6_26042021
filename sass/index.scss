@@ -1,13 +1,55 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body {
+    margin: 4rem 2rem;
 }
 
-.tags {
-    &-container{
-        display: flex;
+#logo {
+    height: 3.7rem;
+    margin-bottom: 3.1rem;
+}
+
+.nav {
+    flex-wrap: wrap;
+    & .tags {
+        display: block;
+        margin-top: .3rem;
+        margin-bottom: .3rem;
     }
+}
+
+h1 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: $primary;
+    position: absolute;
+    display: block;
+    top: 5rem;
+    right: 2rem;
+}
+
+.name {
+    font-size: 3.6rem;
+    line-height: 4.6rem;
+    color: $secondary;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.citycountry {
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+    color: $primary;  
+}
+
+.tagline {
+    line-height: 1.3rem;
+    margin-top: .3rem;
+}
+
+.price {
+    font-size: .9rem;
+    line-height: 1.2rem;
+    color: $tertiary;
+    margin-top: .3rem;
 }
 
 .portrait {
@@ -21,14 +63,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 30%;
-    margin-top: 5.4rem;
+    flex: 1;
+    min-width: 100%;
+    margin-top: 2.9rem;
     &-container {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        justify-content: space-between;
-        margin-top: 5.6rem;
+        margin-top: 1.7rem;
         margin-bottom: 9rem;
     }
     &-link, &-infos {
@@ -38,5 +80,48 @@ header {
     }
     &-tags {
         margin-top: .8rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #logo {
+        height: 5rem;
+    }
+
+    h1 {
+        font-size: 3.6rem;
+        line-height: 3rem;
+    }
+
+    .photographer {
+        min-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        margin: 4.2rem 10rem;
+    }
+
+    #logo {
+        margin-bottom: 0;
+    }
+
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 70%
+    }
+
+    h1 {
+        line-height: 4.7rem;
+        top: 4.4rem;
+        right: 10rem;
+    }
+
+    .photographer {
+        min-width: 30%;
     }
 }
