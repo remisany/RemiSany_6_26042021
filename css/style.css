@@ -201,6 +201,10 @@ h1 {
 
   .photographer {
     min-width: 30%;
+    margin-top: 5.1rem;
+  }
+  .photographer-container {
+    margin-top: 5.9rem;
   }
 }
 

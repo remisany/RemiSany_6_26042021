@@ -123,5 +123,9 @@ h1 {
 
     .photographer {
         min-width: 30%;
+        margin-top: 5.1rem;
+        &-container {
+            margin-top: 5.9rem;
+        }
     }
 }
