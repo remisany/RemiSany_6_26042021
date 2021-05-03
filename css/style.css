@@ -54,6 +54,10 @@ a {
   font-size: 10px;
 }
 
+body {
+  margin: 4rem 2rem;
+}
+
 a {
   cursor: pointer;
 }
@@ -65,6 +69,7 @@ a {
   border: 0.05rem solid #C4C4C4;
   border-radius: 1.1rem;
   font-size: 1.2rem;
+  line-height: 1.6rem;
   font-weight: 500;
   color: #901C1C;
 }
@@ -75,11 +80,6 @@ a {
 }
 .tags-container {
   display: flex;
-  justify-content: center;
-}
-
-body {
-  margin: 4rem 2rem;
 }
 
 #logo {
@@ -89,6 +89,7 @@ body {
 
 .nav {
   flex-wrap: wrap;
+  justify-content: center;
 }
 .nav .tags {
   display: block;
@@ -96,28 +97,16 @@ body {
   margin-bottom: 0.3rem;
 }
 
-h1 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  color: #901C1C;
-  position: absolute;
-  display: block;
-  top: 5rem;
-  right: 2rem;
-}
-
 .name {
   font-size: 3.6rem;
-  line-height: 4.6rem;
+  line-height: 4.7rem;
   color: #D3573C;
-  margin-top: 2rem;
-  text-align: center;
 }
 
 .citycountry {
+  color: #901C1C;
   font-size: 1.3rem;
   line-height: 1.7rem;
-  color: #901C1C;
 }
 
 .tagline {
@@ -126,55 +115,12 @@ h1 {
 }
 
 .price {
-  font-size: 0.9rem;
-  line-height: 1.2rem;
   color: #525252;
-  margin-top: 0.3rem;
-}
-
-.portrait {
-  width: 20rem;
-  height: 20rem;
-  object-fit: cover;
-  border-radius: 10rem;
-}
-
-.photographer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  min-width: 100%;
-  margin-top: 2.9rem;
-}
-.photographer-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 1.7rem;
-  margin-bottom: 9rem;
-}
-.photographer-link, .photographer-infos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.photographer-tags {
-  margin-top: 0.8rem;
 }
 
 @media screen and (min-width: 750px) {
   #logo {
     height: 5rem;
-  }
-
-  h1 {
-    font-size: 3.6rem;
-    line-height: 3rem;
-  }
-
-  .photographer {
-    min-width: 50%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -185,26 +131,207 @@ h1 {
   #logo {
     margin-bottom: 0;
   }
+}
+.title-index {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #901C1C;
+  position: absolute;
+  display: block;
+  top: 5rem;
+  right: 2rem;
+}
 
+.portrait-index {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 10rem;
+}
+
+.name-index {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tagline-index {
+  line-height: 1.3rem;
+}
+
+.price {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.tags-index {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.photographerIndex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 100%;
+  margin-top: 2.9rem;
+}
+.photographerIndex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1.7rem;
+  margin-bottom: 9rem;
+}
+.photographerIndex-link, .photographerIndex-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photographerIndex-tags {
+  margin-top: 0.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  .title-index {
+    font-size: 3.6rem;
+    line-height: 3rem;
+  }
+
+  .photographerIndex {
+    min-width: 50%;
+  }
+}
+@media screen and (min-width: 1200px) {
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 65%;
   }
 
-  h1 {
+  .title-index {
     line-height: 4.7rem;
     top: 4.4rem;
     right: 10rem;
   }
 
-  .photographer {
+  .photographerIndex {
     min-width: 30%;
     margin-top: 5.1rem;
   }
-  .photographer-container {
+  .photographerIndex-container {
     margin-top: 5.9rem;
+  }
+}
+.name-page {
+  max-width: 70%;
+}
+
+.tagline-page {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+  color: #525252;
+  margin-top: 0.4rem;
+}
+
+.tags-page {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+}
+
+.contact {
+  display: none;
+}
+
+.portrait-page {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 5rem;
+  position: absolute;
+  top: 9.9rem;
+  right: 2rem;
+}
+
+.photographerPage {
+  display: flex;
+  align-items: flex-start;
+}
+.photographerPage-infos {
+  display: flex;
+  flex-direction: column;
+}
+.photographerPage-tags {
+  margin-top: 1rem;
+  margin-left: -0.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .header-page {
+    margin-bottom: 4rem;
+  }
+
+  .name-page {
+    font-size: 6.4rem;
+    line-height: 8.3rem;
+    min-width: 100%;
+    margin-right: 2.4rem;
+  }
+
+  .citycountry-page {
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+  }
+
+  .tagline-page {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    margin-top: 1.9rem;
+  }
+
+  .tags-page {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+
+  .portrait-page {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 10rem;
+    top: 18.9rem;
+    right: 7rem;
+  }
+
+  .photographerPage {
+    padding: 5.6rem 5rem 5.4rem 5rem;
+    background-color: #FAFAFA;
+  }
+  .photographerPage-tags {
+    margin-top: 2.3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .contact {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: 700;
+    padding: 2.1rem 1.1rem;
+    border-radius: 0.5rem;
+    color: #FFF;
+    background-color: #901C1C;
+    border: none;
+    display: block;
+  }
+  .contact:hover, .contact:focus {
+    color: #000;
+    background-color: #D3573C;
+  }
+
+  .portrait-page {
+    right: 15rem;
   }
 }
 

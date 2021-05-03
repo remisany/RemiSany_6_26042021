@@ -1,0 +1,111 @@
+.name-page {
+    max-width: 70%;
+}
+
+.tagline-page {
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+    color: $tertiary;
+    margin-top: .4rem;
+}
+
+.tags-page {
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+}
+
+.contact {
+    display: none;
+}
+
+.portrait-page {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 5rem;
+    position: absolute;
+    top: 9.9rem;
+    right: 2rem;
+}
+
+.photographerPage {
+    display: flex;
+    align-items: flex-start;
+    &-infos {
+        display: flex;
+        flex-direction: column;
+    }
+    &-tags {
+        margin-top: 1rem;
+        margin-left: -.4rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .header-page {
+        margin-bottom: 4rem;
+    }
+
+    .name-page {
+        font-size: 6.4rem;
+        line-height: 8.3rem;
+        min-width: 100%;
+        margin-right: 2.4rem;
+    }
+
+    .citycountry-page {
+        font-size: 2.4rem;
+        line-height: 3.1rem;
+    }
+
+    .tagline-page {
+        font-size: 1.8rem;
+        line-height: 2.3rem;
+        margin-top: 1.9rem;
+    }
+
+    .tags-page {
+        font-size: 1.8rem;
+        line-height: 2.3rem;
+    }
+
+    .portrait-page {
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+        border-radius: 10rem;
+        top: 18.9rem;
+        right: 7rem;
+    }
+
+    .photographerPage {
+        padding: 5.6rem 5rem 5.4rem 5rem;
+        background-color: $background-grey;
+        &-tags {
+            margin-top: 2.3rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .contact {
+        font-size: 2rem;
+        line-height: 2.6rem;
+        font-weight: 700;
+        padding: 2.1rem 1.1rem;
+        border-radius: .5rem;
+        color: #FFF;
+        background-color: $primary;
+        border: none;
+        display: block;
+
+        &:hover, &:focus{
+            color: #000;
+            background-color: $secondary;
+        }
+    }
+
+    .portrait-page {
+        right: 15rem;
+    }
+}
