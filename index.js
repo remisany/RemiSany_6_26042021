@@ -152,7 +152,6 @@ function initialize(photographers) {
 
     function storage() {
         const selectProfile = document.querySelectorAll(".photographerIndex-link");
-        console.log(selectProfile);
 
         for (let i = 0; i < selectProfile.length; i++) {
             selectProfile[i].addEventListener("click", function() {
