@@ -105,115 +105,148 @@ function photographerProfile(photographers) {
     }
 }
 
-class mediaFactory {
-    constructor () {
-        this.createMedia = function(medias) {
-            
-            let media;
-
-            if (medias.image) {
-                media = new createImage(medias);
-            } else if (medias.video) {
-                media = new createVideo(medias);
-            }
-            
-            return media;
-        };
-    }
-}
-
-class createImage {
-    constructor(medias) {
-        this.name = "createImage";
-        this.image = medias.image;
-        this.tags = medias.tags.toString();
-        this.likes = medias.likes;
-        this.date = medias.date;
-    }
-}
-
-class createVideo {
-    constructor(medias) {
-        this.name = "createVideo";
-        this.videos = medias.video;
-        this.tags = medias.tags.toString();
-        this.likes = medias.likes;
-        this.date = medias.date;
-    }
-}
-
 function photographerMedia(medias) {
-    let mediasCreated = [];
-    const id = localStorage.getItem("Id");
 
-    for (let i = 0; i < medias.length; i++) {
-        if (medias[i].photographerId == id) {
-            let factory = new mediaFactory();
-            let media = factory.createMedia(medias[i]);
-            mediasCreated.push(media);
+    createAllMedia(medias);
+
+    function createAllMedia (medias) {
+        class mediaFactory {
+            constructor () {
+                this.createMedia = function(medias) {
+                    
+                    let media;
+
+                    if (medias.image) {
+                        media = new createImage(medias);
+                    } else if (medias.video) {
+                        media = new createVideo(medias);
+                    }
+                    
+                    return media;
+                };
+            }
+        }
+
+        class createImage {
+            constructor(medias) {
+                this.name = "createImage";
+                this.image = medias.image;
+                this.tags = medias.tags.toString();
+                this.likes = medias.likes;
+                this.date = medias.date;
+            }
+        }
+
+        class createVideo {
+            constructor(medias) {
+                this.name = "createVideo";
+                this.video = medias.video;
+                this.tags = medias.tags.toString();
+                this.likes = medias.likes;
+                this.date = medias.date;
+            }
+        }
+
+        let mediasCreated = [];
+        const id = localStorage.getItem("Id");
+
+        for (let i = 0; i < medias.length; i++) {
+            if (medias[i].photographerId == id) {
+                let factory = new mediaFactory();
+                let media = factory.createMedia(medias[i]);
+                mediasCreated.push(media);
+            }
+        }
+
+        for (let i = 0; i < mediasCreated.length; i++) {
+            showMedias(mediasCreated[i]);
         }
     }
 
-    for (let i = 0; i < mediasCreated.length; i++) {
-        showMedias(mediasCreated[i]);
+    function showMedias(mediaCreated) {
+        const sectionMedias = document.getElementById("medias");
+
+        //article "medias-photographer"
+        const article = document.createElement("article");
+        article.classList.add("medias-photographer");
+            
+        //link "__visual"
+        const a1 = document.createElement("a");
+        a1.classList.add("medias-photographer__visual");
+
+        if (mediaCreated.name == "createImage") {
+            const img = document.createElement("img");
+            img.classList.add("medias-photographer__visual__img");
+            img.alt = mediaCreated.image;
+            
+            img.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.image;
+                    
+            article.appendChild(img);
+        } else if (mediaCreated.name == "createVideo") {
+            const video = document.createElement("video");
+            video.classList.add("medias-photographer__visual__video");
+
+            video.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.video;
+                    
+            article.appendChild(video);
+        }
+
+        article.appendChild(a1);
+
+        //static "__infos"
+        const div1 = document.createElement("div");
+        div1.classList.add("medias-photographer__infos");
+        const p1 = document.createElement("p");
+
+        let tag = mediaCreated.tags;
+        let pContent;
+
+        if (mediaCreated.name == "createImage") {
+            pContent = mediaCreated.image;
+        } else if (mediaCreated.name == "createVideo") {
+            pContent = mediaCreated.video;
+        }
+
+        pContent = pContent.substring(tag.length+1);
+        pContent = pContent.substring(0, pContent.length-4);
+        pContent = pContent.replace(/_/g, " ");
+        p1.textContent = pContent;
+        
+        div1.appendChild(p1);
+
+        article.appendChild(div1);
+
+        //static "__infos__likes"
+        const a2 = document.createElement("a");
+        a2.classList.add("medias-photographer__infos__likes");
+
+        const p2 = document.createElement("p");
+        p2.textContent = mediaCreated.likes;
+        a2.appendChild(p2);
+
+        //heart icon
+        const span = document.createElement("span");
+        span.classList.add("fas");
+        span.classList.add("fa-heart");
+        a2.appendChild(span);
+
+        div1.appendChild(a2);
+        
+        article.appendChild(div1);
+
+        sectionMedias.appendChild(article);
     }
-}
 
-function showMedias(mediaCreated) {
-    const sectionMedias = document.getElementById("medias");
+    increment ();
 
-    //article "medias-photographer"
-    const article = document.createElement("article");
-    article.classList.add("medias-photographer");
-        
-    //link "__visual"
-    const a = document.createElement("a");
-    a.classList.add("medias-photographer__visual");
+    function increment() {
+        const link = document.querySelectorAll(".medias-photographer__infos__likes");
 
-    if (mediaCreated.name == "createImage") {
-        const img = document.createElement("img");
-        img.classList.add("medias-photographer__visual__img");
-        img.alt = mediaCreated.image;
-        
-        img.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.image;
-                
-        article.appendChild(img);
+        for (let i = 0; i < link.length; i++) {
+            link[i].addEventListener("click", function() {
+                console.log("ok");
+                this.firstChild.textContent = parseInt(this.firstChild.textContent) + 1;
+            });
+        }
     }
-
-    article.appendChild(a);
-
-    //static "__infos"
-    const div1 = document.createElement("div");
-    div1.classList.add("medias-photographer__infos");
-    const p1 = document.createElement("p");
-
-    let tag = mediaCreated.tags;
-    let pContent = mediaCreated.image;
-    pContent = pContent.substring(tag.length+1);
-    pContent = pContent.substring(0, pContent.length-4);
-    p1.textContent = pContent;
-    console.log(p1.textContent);
-    
-    div1.appendChild(p1);
-
-    article.appendChild(div1);
-
-    //static "__infos__likes"
-    const div2 = document.createElement("div");
-    div2.classList.add("medias-photographer__infos__likes");
-    const p2 = document.createElement("p");
-    const span = document.createElement("span");
-    span.classList.add("fas");
-    span.classList.add("fa-heart");
-
-    p2.textContent = mediaCreated.likes;
-
-    div2.appendChild(p2);
-    div2.appendChild(span);
-        
-    div1.appendChild(div2);
-    
-    article.appendChild(div1);
-
-    sectionMedias.appendChild(article);
 }
