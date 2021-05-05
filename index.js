@@ -106,7 +106,7 @@ function initialize(photographers) {
 
         for (let i = 0; i < selectTag.length; i++) {
             selectTag[i].addEventListener("click", function() {
-                search (this);
+                search(this);
             });
         }
 
@@ -160,3 +160,5 @@ function initialize(photographers) {
         }
     }
 }
+
+
