@@ -43,11 +43,13 @@
 
 #medias {
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .medias-photographer {
     &__visual {
-        &__img {
+        &__img, &__video {
             width: 35rem;
             height: 19rem;
             object-fit: cover;
@@ -73,6 +75,7 @@
 .fa-heart {
     color: $primary;
     margin-left: .6rem;
+    font-size: 1rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -118,6 +121,31 @@
         &__tags {
             margin-top: 2.3rem;
         }
+    }
+
+    .medias-photographer {
+        min-width: 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__visual {
+            &__img, &__video {
+                height: 30rem;
+                width: 35rem;
+                margin-top: 3rem;
+            }
+        }
+        &__infos {
+            width: 35rem;
+            & p {
+                font-size: 2.4rem;
+                line-height: 3.1rem;
+            }
+        }
+    }
+
+    .fa-heart {
+        font-size: 1.8rem;
     }
 }
 

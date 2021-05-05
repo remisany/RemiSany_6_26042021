@@ -270,9 +270,11 @@ a {
 
 #medias {
   margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.medias-photographer__visual__img {
+.medias-photographer__visual__img, .medias-photographer__visual__video {
   width: 35rem;
   height: 19rem;
   object-fit: cover;
@@ -296,6 +298,7 @@ a {
 .fa-heart {
   color: #901C1C;
   margin-left: 0.6rem;
+  font-size: 1rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -342,6 +345,29 @@ a {
   .profile-photographer__tags {
     margin-top: 2.3rem;
   }
+
+  .medias-photographer {
+    min-width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .medias-photographer__visual__img, .medias-photographer__visual__video {
+    height: 30rem;
+    width: 35rem;
+    margin-top: 3rem;
+  }
+  .medias-photographer__infos {
+    width: 35rem;
+  }
+  .medias-photographer__infos p {
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+  }
+
+  .fa-heart {
+    font-size: 1.8rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   .contact {
@@ -363,6 +389,74 @@ a {
   .portrait-page {
     right: 15rem;
   }
+}
+/* The container must be positioned relative: */
+* {
+  font-size: 10px;
+}
+
+#select-container {
+  position: relative;
+  width: 17rem;
+  border-radius: 0.5rem;
+}
+
+#select-container div {
+  font-size: 1.8rem;
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.select-active {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
