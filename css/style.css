@@ -269,7 +269,7 @@ a {
 }
 
 #medias {
-  margin-top: 1rem;
+  margin-top: 4.6rem;
   display: flex;
   flex-wrap: wrap;
 }
@@ -302,6 +302,10 @@ a {
 }
 
 @media screen and (min-width: 750px) {
+  #medias {
+    margin-top: 0;
+  }
+
   .header-page {
     margin-bottom: 4rem;
   }
@@ -390,73 +394,93 @@ a {
     right: 15rem;
   }
 }
-/* The container must be positioned relative: */
-* {
-  font-size: 10px;
-}
-
-#select-container {
-  position: relative;
-  width: 17rem;
-  border-radius: 0.5rem;
-}
-
-#select-container div {
-  font-size: 1.8rem;
-}
-
-.select-selected {
-  background-color: DodgerBlue;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div, .select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-}
-
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
+#filter {
   display: none;
 }
 
-.select-items div:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
+@media screen and (min-width: 750px) {
+  #filter {
+    display: flex;
+    align-items: center;
+    margin-top: 0.9rem;
+  }
+  #filter p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: 2.5rem;
+  }
 
-.select-active {
-  display: none;
+  #select-container {
+    position: relative;
+    width: 17rem;
+  }
+  #select-container div, #select-container span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .select-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #901C1C;
+    border-radius: 0.5rem;
+    color: #FFF;
+    padding: 1.4rem 2rem;
+  }
+  .select-selected:hover {
+    background-color: #D3573C;
+    color: black;
+  }
+  .select-items {
+    position: absolute;
+    background-color: #901C1C;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  .select-items div {
+    color: #FFF;
+    padding: 1.4rem 2rem;
+    position: relative;
+  }
+  .select-items div:hover {
+    background-color: #D3573C;
+    color: black;
+  }
+  .select-hide {
+    display: none;
+  }
+  .select-active {
+    display: none;
+  }
+  .select-arrow-active {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .border {
+    display: flex;
+    flex-direction: column;
+  }
+  .border:before, .border::after {
+    content: "";
+    position: absolute;
+    height: 0.1rem;
+    background-color: #FFF;
+    width: 13rem;
+  }
+  .border:before {
+    top: 0rem;
+  }
+  .border::after {
+    bottom: 0rem;
+  }
+
+  .radius {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
