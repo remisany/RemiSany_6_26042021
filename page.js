@@ -213,8 +213,11 @@ function photographerMedia(medias) {
             sectionMedias.removeChild(sectionMedias.firstChild);
         }
 
+        resetLightbox();
+
         for (let i = 0; i < mediasCreated.length; i++) {
             showMedias(mediasCreated[i]);
+            createLightbox(mediasCreated[i]);
         }
     }
 
@@ -234,14 +237,14 @@ function photographerMedia(medias) {
             
             img.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.image;
                     
-            article.appendChild(img);
+            a1.appendChild(img);
         } else if (mediaCreated.type == "createVideo") {
             const video = document.createElement("video");
             video.classList.add("medias-photographer__visual__video");
 
             video.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.video;
                     
-            article.appendChild(video);
+            a1.appendChild(video);
         }
 
         article.appendChild(a1);
@@ -317,4 +320,6 @@ function photographerMedia(medias) {
         span.classList.add("fa-heart");
         sectionLikesPrice.insertBefore(span, p3);
     }
+
+    showlightbox();
 }

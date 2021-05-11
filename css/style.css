@@ -539,6 +539,13 @@ a, .button {
 #form__header {
   margin-bottom: 1.9rem;
 }
+#form__header .fa-times {
+  color: #FFF;
+  position: absolute;
+  font-size: 3.2rem;
+  right: 2rem;
+  top: 2rem;
+}
 #form__header p {
   font-size: 3.6rem;
   line-height: 4.7rem;
@@ -574,14 +581,6 @@ a, .button {
   padding: 1rem;
 }
 
-.fa-times {
-  color: #FFF;
-  position: absolute;
-  font-size: 3.2rem;
-  right: 2rem;
-  top: 2rem;
-}
-
 @media screen and (min-width: 750px) {
   #form {
     margin: 6.2rem auto;
@@ -591,6 +590,11 @@ a, .button {
   }
   #form__container {
     background-color: rgba(196, 196, 196, 0.4);
+  }
+  #form__header .fa-times {
+    font-size: 4.2rem;
+    right: 3.5rem;
+    top: 3.5rem;
   }
   #form__header p {
     font-size: 6.4rem;
@@ -614,11 +618,80 @@ a, .button {
   .form__data input {
     height: 6.8rem;
   }
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #FFF;
+}
+.lightbox__content {
+  position: relative;
+}
+.lightbox__content article {
+  display: none;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+}
+.lightbox__content article img, .lightbox__content article video {
+  object-fit: contain;
+}
+.lightbox__content .visualization {
+  display: flex;
+  flex-direction: column;
+}
+.lightbox__content p {
+  margin-top: 1.2rem;
+  font-size: 2.4rem;
+  color: #901C1C;
+}
+.lightbox .fas {
+  color: #901C1C;
+  font-size: 2.2rem;
+  z-index: 10;
+  position: fixed;
+}
+.lightbox .fa-times {
+  top: 2.5rem;
+  right: 2.5rem;
+}
+.lightbox .fa-chevron-right {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  right: 2.5rem;
+}
+.lightbox .fa-chevron-left {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  left: 2.5rem;
+}
 
-  .fa-times {
+@media screen and (min-width: 750px) {
+  .lightbox__content article {
+    margin-left: 19.5rem;
+    margin-right: 19.5rem;
+  }
+  .lightbox__content img, .lightbox__content video {
+    max-height: 50vh;
+  }
+  .lightbox .fas {
     font-size: 4.2rem;
-    right: 3.5rem;
-    top: 3.5rem;
+  }
+  .lightbox .fa-times {
+    top: 7.7rem;
+    right: 12.6rem;
+  }
+  .lightbox .fa-chevron-right {
+    right: 13.1rem;
+  }
+  .lightbox .fa-chevron-left {
+    left: 13.1rem;
   }
 }
 

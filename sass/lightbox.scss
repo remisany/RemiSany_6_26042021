@@ -1,0 +1,81 @@
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+    &__content {
+        position: relative;
+        & article {
+            display: none;
+            margin-left: 5rem;
+            margin-right: 5rem;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+            & img, video {
+                object-fit: contain;
+            }
+        }
+        & .visualization {
+            display: flex;
+            flex-direction: column;
+        }
+        & p {
+            margin-top: 1.2rem;
+            font-size: 2.4rem;
+            color: $primary;
+        }
+    }
+    & .fas {
+        color: $primary;
+        font-size: 2.2rem;  
+        z-index: 10;
+        position: fixed;
+    }
+    & .fa-times {
+        top: 2.5rem;
+        right: 2.5rem;
+    }
+    & .fa-chevron-right {
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        right: 2.5rem;
+    }
+    & .fa-chevron-left {
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        left: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .lightbox {
+        &__content {
+            & article {
+                margin-left: 19.5rem;
+                margin-right: 19.5rem;
+                //margin-top: 25vh;
+                //transform: translateY(-25%);
+            }
+            & img, video {
+                max-height: 50vh;
+            }
+        }
+        & .fas {
+            font-size: 4.2rem;
+        }
+        & .fa-times {
+            top: 7.7rem;
+            right: 12.6rem;
+        }
+        & .fa-chevron-right {
+            right: 13.1rem;
+        }
+        & .fa-chevron-left {
+            left: 13.1rem;
+        }
+    }
+}
