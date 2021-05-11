@@ -147,7 +147,6 @@ function initialize(photographers) {
                 navTags[i].classList.add("active");
             }
         }
-
     }
 
     function storage() {

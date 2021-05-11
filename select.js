@@ -78,6 +78,7 @@ for (let i = 0; i < selectItems.length; i++) {
                 divItem[1].classList.add("radius");
             }
         }
+        closeAllSelect(this);
     });
     
     div2.appendChild(item);
@@ -125,5 +126,3 @@ function closeAllSelect(item) {
         }
     }
 }
-
-document.addEventListener("click", closeAllSelect);
