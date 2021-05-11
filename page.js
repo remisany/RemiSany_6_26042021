@@ -82,6 +82,7 @@ function photographerProfile(photographers) {
     
         //button "Contacter-moi"
         const a3 = document.createElement("button");
+        a3.classList.add("button");
         a3.classList.add("contact");
         a3.textContent = "Contactez-moi";
             
@@ -97,12 +98,22 @@ function photographerProfile(photographers) {
         article.appendChild(img);
         
         sectionProfile.appendChild(article);
+
+        //Price
+        const sectionLikesPrice = document.getElementById("likesPrice");  
+        
+        const p3 = document.createElement("p");
+        p3.id = "likesPrice__price";
+        p3.textContent = photographer.price + "€ / jour";
+        sectionLikesPrice.appendChild(p3);
     }
 
     function determineId(photographer) {
         const id = photographer.id;
         return id;
     }
+
+    launchForm();
 }
 
 let flag = 0;
@@ -112,6 +123,7 @@ const sectionMedias = document.getElementById("medias");
 function photographerMedia(medias) {
     if (flag === 0) {
         createAllMedia(medias);
+        likesPrice();
     } else {
         filter(mediasCreated);
     }
@@ -183,7 +195,7 @@ function photographerMedia(medias) {
 
         if (filter === "Popularité") {
             mediasCreated.sort(function(a, b) {
-                return a.likes - b.likes;
+                return b.likes - a.likes;
             });
         } else if (filter === "Date") {
             mediasCreated.sort(function(a, b) {
@@ -264,5 +276,45 @@ function photographerMedia(medias) {
         article.appendChild(div1);
 
         sectionMedias.appendChild(article);
+    }
+
+    likes();
+
+    function likes() {
+        const link = document.querySelectorAll(".medias-photographer__infos__likes");
+    
+        for (let i = 0; i < link.length; i++) {
+            link[i].addEventListener("click", function() {
+                this.firstChild.textContent = parseInt(this.firstChild.textContent) + 1;
+
+                let sumLikes = document.getElementById("likesPrice__sum");
+                sumLikes.textContent = parseInt(sumLikes.textContent) + 1;
+            });
+        }
+    }
+
+    function likesPrice() {
+        const sectionLikesPrice = document.getElementById("likesPrice");
+        const p3 = document.getElementById("likesPrice__price");
+
+        //Likes sum
+        const p1 = document.createElement("p");
+        p1.id = "likesPrice__sum";
+
+        const likes = document.querySelectorAll(".medias-photographer__infos__likes");
+        let sumLikes = 0;
+        for (let i = 0; i < likes.length; i++) {
+            sumLikes = sumLikes + parseInt(likes[i].firstChild.textContent);
+        }
+
+        p1.textContent = sumLikes;
+
+        sectionLikesPrice.insertBefore(p1, p3);
+
+        //Heart
+        const span = document.createElement("span");
+        span.classList.add("fas");
+        span.classList.add("fa-heart");
+        sectionLikesPrice.insertBefore(span, p3);
     }
 }

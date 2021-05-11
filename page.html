@@ -30,11 +30,45 @@
 
         <section id="medias">
         </section>
+
+        <section id="likesPrice">
+        </section>
+
+        <section id="form__container">
+            <div id="form">
+                <div id="form__header">
+                    <p>Contactez-moi</p>
+                    <a class="close"><i class="fas fa-times"></i></a>
+                </div>
+
+                <form id="form__text" action="page.html" method="post">
+                    <div class="form__data">
+                        <label for="first">Prénom</label>
+                        <input class="response" type="text" id="first" name="first" minlength="2"/>
+                    </div>
+                    <div class="form__data">
+                        <label for="last">Nom</label>
+                        <input class="response" type="text" id="last" name="last"/>
+                    </div>
+                    <div class="form__data">
+                        <label for="email">E-mail</label>
+                        <input class="response" type="email" id="email" name="email"/>
+                    </div>
+    
+                    <div class="form__data">
+                        <label for="message">Votre message</label>
+                        <textarea class="response" id="message" name="message"></textarea>
+                    </div>
+
+                    <input id="form__submit" class="button" type="submit" value="Envoyer"/>
+                </form>
+            </div>
+        </section>
     </main>
 
     <script src="page.js"></script>
     <script src="select.js"></script>
-    <script src="likes.js"></script>
+    <script src="form.js"></script>
 </body>
 
 </html>
