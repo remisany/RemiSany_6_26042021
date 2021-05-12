@@ -1,3 +1,4 @@
+//Data recovery
 fetch("FishEyeDataFR.json")
     .then(function(response) {
         return response.json();
@@ -19,6 +20,7 @@ function photographerProfile(photographers) {
     
     update();   
     
+    //Remove children from "section"
     function update() {
         for(let i = 0; i < photographers.length; i++) {
             if (photographers[i].name === storage) {
@@ -28,15 +30,16 @@ function photographerProfile(photographers) {
         }
     }
     
+    //Create the photographer's profile
     function showPhotographer(photographer) {
-        //article
+        //Create article "profile-photographer"
         const article = document.createElement("article");
         article.classList.add("profile-photographer");
         
-        //photographerPage-infos
+        //Create div "profile-photographer__infos" containing name, city, country and tagline
         const div1 = document.createElement("div");
         div1.classList.add("profile-photographer__infos");
-        const h1 = document.createElement("h2");
+        const h1 = document.createElement("h1");
         h1.classList.add("name");
         h1.classList.add("name-page");
         const p1 = document.createElement("p");
@@ -53,7 +56,7 @@ function photographerProfile(photographers) {
         div1.appendChild(p1);
         div1.appendChild(p2);
         
-        //photographerPage-tags
+        //Create nav "profile-photographer__tags" containing tags
         const nav = document.createElement("nav");
         nav.classList.add("profile-photographer__tags");
         const ul = document.createElement("ul");
@@ -72,7 +75,7 @@ function photographerProfile(photographers) {
         
         nav.appendChild(ul);
     
-        //div contenant photographerPage-infos et photographerPage-tags
+        //Create div "profile-photographer__infos-tags" containing previous div and nav
         const div2 = document.createElement("div");
         div2.classList.add("profile-photographer__infos-tags");
     
@@ -80,7 +83,7 @@ function photographerProfile(photographers) {
         div2.appendChild(nav);
         article.appendChild(div2);
     
-        //button "Contacter-moi"
+        //Create button "Contacter-moi"
         const a3 = document.createElement("button");
         a3.classList.add("button");
         a3.classList.add("contact");
@@ -88,7 +91,7 @@ function photographerProfile(photographers) {
             
         article.appendChild(a3);
     
-        //photographerPage-img
+        //Create photographer portrait
         const img = document.createElement("img");
         img.classList.add("portrait-page");
         img.alt = "Portrait de " + photographer.name;
@@ -99,7 +102,7 @@ function photographerProfile(photographers) {
         
         sectionProfile.appendChild(article);
 
-        //Price
+        //Create price (at the end of the page)
         const sectionLikesPrice = document.getElementById("likesPrice");  
         
         const p3 = document.createElement("p");
@@ -108,6 +111,7 @@ function photographerProfile(photographers) {
         sectionLikesPrice.appendChild(p3);
     }
 
+    //Get the photographer's id
     function determineId(photographer) {
         const id = photographer.id;
         return id;
@@ -117,6 +121,7 @@ function photographerProfile(photographers) {
 
     const tagsPage = document.querySelectorAll(".tags-page");
     
+    //Listen to clicks on tags and redirects to index.html with tag in memory
     for (let i = 0; i < tagsPage.length; i++) {
         tagsPage[i].addEventListener("click", function() {
             localStorage.setItem("Tag", tagsPage[i].textContent);
@@ -242,7 +247,7 @@ function photographerMedia(medias) {
         if (mediaCreated.type == "createImage") {
             const img = document.createElement("img");
             img.classList.add("medias-photographer__visual__img");
-            img.alt = mediaCreated.image;
+            img.alt = "Photo intitulé : " + mediaCreated.name;
             
             img.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.image;
                     
@@ -250,7 +255,6 @@ function photographerMedia(medias) {
         } else if (mediaCreated.type == "createVideo") {
             const video = document.createElement("video");
             video.classList.add("medias-photographer__visual__video");
-
             video.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.video;
                     
             a1.appendChild(video);

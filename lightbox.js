@@ -12,7 +12,7 @@ cross.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
-//Right
+//Create right arrow 
 const right = document.createElement("a");
 right.classList.add("fas");
 right.classList.add("fa-chevron-right");
@@ -22,7 +22,7 @@ right.addEventListener("click", function() {
     slide(1);
 });
 
-//Left
+//Create left arrow
 const left = document.createElement("a");
 left.classList.add("fas");
 left.classList.add("fa-chevron-left");
@@ -32,6 +32,7 @@ left.addEventListener("click", function() {
     slide(-1);
 });
 
+//Reset Lightbox
 function resetLightbox() {
     while (lightboxContent.firstChild) {
         lightboxContent.removeChild(lightboxContent.firstChild);
@@ -41,10 +42,10 @@ function resetLightbox() {
 function createLightbox (mediaCreated) {
     const sectionMedias = document.getElementById("medias");
 
-    //article "medias-photographer"
+    //Create article containing photo or video and title
     const newArticle = document.createElement("article");
                 
-    //link "__visual"
+    //Add image or video
     if (mediaCreated.type == "createImage") {
         const img = document.createElement("img");
         img.alt = mediaCreated.image;     
@@ -57,7 +58,7 @@ function createLightbox (mediaCreated) {
         newArticle.appendChild(video);
     }
 
-    //static "__infos"
+    //Add title
     const p = document.createElement("p");      
     p.textContent = mediaCreated.name;
     newArticle.appendChild(p);
@@ -67,6 +68,8 @@ function createLightbox (mediaCreated) {
     sectionMedias.appendChild(lightbox);
 }
 
+//Show the selected image in the lightbox
+//Add class "vizualisation" which displays the selected image
 function showlightbox () {
     const link = document.querySelectorAll(".medias-photographer__visual");
     const article = document.querySelectorAll(".lightbox__content article");
@@ -81,16 +84,16 @@ function showlightbox () {
             }
             article[i].classList.add("visualization");
 
+            //If image is the first
             if ((article[i].className === "visualization") && (i === 0)) {
                 left.classList.remove("fa-chevron-left");
-                console.log("enleve gauche 1");
             } else {
                 left.classList.add("fa-chevron-left");
             }
 
+            //If image is the last
             if ((article[i].className === "visualization") && (i === link.length-1)) {
                 right.classList.remove("fa-chevron-right");
-                console.log("enleve droite 1");
             } else {
                 right.classList.add("fa-chevron-right");
             }
@@ -100,10 +103,13 @@ function showlightbox () {
     }
 }
 
+//Open lightbox
 function open() {
     lightbox.style.display = "block";
 }
 
+//Create arrow to slide in the lightbox
+//Remove or add class "vizualisation"
 function slide(n) {
     const article = document.querySelectorAll(".lightbox__content article");
 
@@ -112,21 +118,21 @@ function slide(n) {
             article[i].classList.remove("visualization");
             let j = n + i;
             article[j].classList.add("visualization");
+            //If image is the second
             if (j === 1) {
                 left.classList.add("fa-chevron-left");
-                console.log("met gauche");
             }
+            //If image is the first
             if (j === 0) {
-                left.classList.remove("fa-chevron-left");
-                console.log("enleve gauche 2");
+                left.classList.remove("fa-chevron-left");;
             }
+            //If image is the last
             if (j === article.length-1) {
                 right.classList.remove("fa-chevron-right");
-                console.log("enleve droite 2");
             }
+            //If image is the penultimate
             if (j === article.length-2) {
                 right.classList.add("fa-chevron-right");
-                console.log("met droite");
             }
             break;
         }

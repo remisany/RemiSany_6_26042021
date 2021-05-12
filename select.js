@@ -1,7 +1,7 @@
 const selectContainer = document.getElementById("select-container");
 const selectItems = ["Popularité", "Date", "Titre"];
 
-//Elément selectionné
+//Selected element
 const div1 = document.createElement("div");
 div1.classList.add("select-selected");
 

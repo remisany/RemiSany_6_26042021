@@ -1,3 +1,4 @@
+//Data recovery
 fetch("FishEyeDataFR.json")
     .then(function(response) {
         return response.json();
@@ -16,6 +17,7 @@ function initialize(photographers) {
     const section = document.querySelector("section");
     let tagsGroup = photographers;
 
+    //If there is a "tag" in the memory then call search()
     if (localStorage.getItem("Tag") !== null) {
         let tag = localStorage.getItem("Tag");
         localStorage.clear();
@@ -25,22 +27,25 @@ function initialize(photographers) {
     update();   
 
     function update() {
+        //Remove children from "section"
         while (section.firstChild) {
             section.removeChild(section.firstChild);
         }
 
+        //Create the protographer profile according to those to display
         for(let i = 0; i < tagsGroup.length; i++) {
             showPhotographer(tagsGroup[i]);
         }
         select();
     }
 
+    //Create the photographer's profile
     function showPhotographer(photographer) {
-        //article
+        //Create article
         const article = document.createElement("article");
         article.classList.add("photographerIndex");
     
-        //photographer-link
+        //Create link "photographer-link" containing the portrait and the name
         const a1 = document.createElement("a");
         a1.classList.add("photographerIndex-link");
         const img = document.createElement("img");
@@ -57,7 +62,7 @@ function initialize(photographers) {
         a1.appendChild(h2);
         article.appendChild(a1);
     
-        //photographer-infos
+        //Create div "photographer-infos" containing the city, the country, the tagline and the price
         const div = document.createElement("div");
         div.classList.add("photographerIndex-infos");
         const p1 = document.createElement("p");
@@ -76,9 +81,10 @@ function initialize(photographers) {
         div.appendChild(p3);
         article.appendChild(div);
     
-        //photographer-tags
+        //Create nav "photographer-tags" containing tags
         const nav = document.createElement("nav");
         nav.classList.add("photographerIndex-tags");
+        nav.setAttribute("aria-label", photographer.name + " navigation tags");
         const ul = document.createElement("ul");
         ul.classList.add("tags-container");
     
@@ -101,11 +107,12 @@ function initialize(photographers) {
     
         section.appendChild(article);
 
-        //lien vers page
+        //Redirection to the photographer's page
         a1.href ="page.html";
         a1.onclick = storage(photographer);
     }
 
+    //Listen to clicks on tags and home
     function select() {
         const selectTag = document.querySelectorAll(".tags");
 
@@ -124,6 +131,7 @@ function initialize(photographers) {
         };
     }
 
+    //Build a photographer table following the selected tag
     function search(tag) {
         tagContent = tag.substr(1);
         tagContent = tagContent.toLowerCase();
@@ -140,6 +148,7 @@ function initialize(photographers) {
         update();
     }
 
+    //Select the same tag selected on the navigation bar
     function navTag() {
         const navTags = document.querySelectorAll(".nav a");
         for (let i = 0; i < navTags.length; i++) {
@@ -153,6 +162,7 @@ function initialize(photographers) {
         }
     }
 
+    //Stores the name of the selected photographer
     function storage() {
         const selectProfile = document.querySelectorAll(".photographerIndex-link");
 
