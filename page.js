@@ -114,6 +114,15 @@ function photographerProfile(photographers) {
     }
 
     launchForm();
+
+    const tagsPage = document.querySelectorAll(".tags-page");
+    
+    for (let i = 0; i < tagsPage.length; i++) {
+        tagsPage[i].addEventListener("click", function() {
+            localStorage.setItem("Tag", tagsPage[i].textContent);
+            document.location.href="index.html";
+        });
+    }
 }
 
 let flag = 0;

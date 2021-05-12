@@ -14,8 +14,13 @@ fetch("FishEyeDataFR.json")
 function initialize(photographers) {
     let tagContent;
     const section = document.querySelector("section");
-
     let tagsGroup = photographers;
+
+    if (localStorage.getItem("Tag") !== null) {
+        let tag = localStorage.getItem("Tag");
+        localStorage.clear();
+        search(tag);
+    }
 
     update();   
 
@@ -106,7 +111,7 @@ function initialize(photographers) {
 
         for (let i = 0; i < selectTag.length; i++) {
             selectTag[i].addEventListener("click", function() {
-                search(this);
+                search(this.textContent);
             });
         }
 
@@ -120,8 +125,7 @@ function initialize(photographers) {
     }
 
     function search(tag) {
-        tagContent = tag.textContent;
-        tagContent = tagContent.substr(1);
+        tagContent = tag.substr(1);
         tagContent = tagContent.toLowerCase();
         tagsGroup = [];
         for (let i = 0; i < photographers.length; i++) {
