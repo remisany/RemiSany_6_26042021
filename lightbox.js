@@ -32,8 +32,6 @@ left.addEventListener("click", function() {
     slide(-1);
 });
 
-lightbox.appendChild(lightboxContainer);
-
 function resetLightbox() {
     while (lightboxContent.firstChild) {
         lightboxContent.removeChild(lightboxContent.firstChild);
@@ -75,15 +73,27 @@ function showlightbox () {
 
     for (let i = 0; i < link.length; i++) {
         link[i].addEventListener("click", function() {
+
+            for (let i = 0; i < article.length; i++) {
+                if (article[i].className === "visualization") {
+                    article[i].classList.remove("visualization");
+                }
+            }
             article[i].classList.add("visualization");
 
             if ((article[i].className === "visualization") && (i === 0)) {
                 left.classList.remove("fa-chevron-left");
+                console.log("enleve gauche 1");
+            } else {
+                left.classList.add("fa-chevron-left");
             }
 
             if ((article[i].className === "visualization") && (i === link.length-1)) {
                 right.classList.remove("fa-chevron-right");
-            } 
+                console.log("enleve droite 1");
+            } else {
+                right.classList.add("fa-chevron-right");
+            }
 
             open();
         });
@@ -101,19 +111,22 @@ function slide(n) {
         if (article[i].className === "visualization") {
             article[i].classList.remove("visualization");
             let j = n + i;
-            console.log(j);
             article[j].classList.add("visualization");
             if (j === 1) {
                 left.classList.add("fa-chevron-left");
+                console.log("met gauche");
             }
             if (j === 0) {
                 left.classList.remove("fa-chevron-left");
+                console.log("enleve gauche 2");
             }
             if (j === article.length-1) {
                 right.classList.remove("fa-chevron-right");
+                console.log("enleve droite 2");
             }
             if (j === article.length-2) {
                 right.classList.add("fa-chevron-right");
+                console.log("met droite");
             }
             break;
         }

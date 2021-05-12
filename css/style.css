@@ -634,17 +634,18 @@ a, .button {
 }
 .lightbox__content article {
   display: none;
+}
+.lightbox__content .visualization {
+  display: flex;
+  flex-direction: column;
   margin-left: 5rem;
   margin-right: 5rem;
   margin-top: 50vh;
   transform: translateY(-50%);
 }
-.lightbox__content article img, .lightbox__content article video {
-  object-fit: contain;
-}
-.lightbox__content .visualization {
-  display: flex;
-  flex-direction: column;
+.lightbox__content .visualization img, .lightbox__content .visualization video, .lightbox__content .visualization p {
+  margin-right: auto;
+  margin-left: auto;
 }
 .lightbox__content p {
   margin-top: 1.2rem;
@@ -673,12 +674,8 @@ a, .button {
 }
 
 @media screen and (min-width: 750px) {
-  .lightbox__content article {
-    margin-left: 19.5rem;
-    margin-right: 19.5rem;
-  }
-  .lightbox__content img, .lightbox__content video {
-    max-height: 50vh;
+  .lightbox__content .visualization img, .lightbox__content .visualization video, .lightbox__content .visualization p {
+    max-height: 70vh;
   }
   .lightbox .fas {
     font-size: 4.2rem;
