@@ -67,6 +67,7 @@ function photographerProfile(photographers) {
             let a2 = document.createElement("a");
             a2.classList.add("tags");
             a2.classList.add("tags-page");
+            a2.href = "#";
             let li = document.createElement("li");
             a2.textContent = "#" + tags[i];
             li.appendChild(a2);
@@ -255,6 +256,7 @@ function photographerMedia(medias) {
         //Create link "medias-photographer__visual" containing the photo (redirect to lightbox)
         const a1 = document.createElement("a");
         a1.classList.add("medias-photographer__visual");
+        a1.href = "#";
 
         //If the object is image or video
         if (mediaCreated.type == "createImage") {
@@ -268,6 +270,7 @@ function photographerMedia(medias) {
         } else if (mediaCreated.type == "createVideo") {
             const video = document.createElement("video");
             video.classList.add("medias-photographer__visual__video");
+            video.title = "Video intitulé : " + mediaCreated.name;
             video.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.video;
                     
             a1.appendChild(video);
@@ -289,6 +292,8 @@ function photographerMedia(medias) {
         //Create link containing likes
         const a2 = document.createElement("a");
         a2.classList.add("medias-photographer__infos__likes");
+        a2.id = mediaCreated.name;
+        a2.href = "#" + mediaCreated.name;
 
         const p2 = document.createElement("p");
         p2.textContent = mediaCreated.likes;

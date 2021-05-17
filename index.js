@@ -87,12 +87,14 @@ function initialize(photographers) {
         //nav.setAttribute("aria-label", photographer.name + " navigation tags");
         const ul = document.createElement("ul");
         ul.classList.add("tags-container");
+        ul.classList.add("nav");
     
         let tags = photographer.tags;
         for (let i = 0; i < tags.length; i++) {
             let a2 = document.createElement("a");
             a2.classList.add("tags");
             a2.classList.add("tags-index");
+            a2.href = "#";
             if (tags[i] === tagContent) {
                 a2.classList.add("active");
             }

@@ -12,25 +12,24 @@ cross.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape") {
+        lightbox.style.display = "none";
+        link[visual].focus();
+    }
+});
+
 //Create right arrow 
 const right = document.createElement("a");
 right.classList.add("fas");
 right.classList.add("fa-chevron-right");
 lightbox.appendChild(right);
 
-right.addEventListener("click", function() {
-    slide(1);
-});
-
 //Create left arrow
 const left = document.createElement("a");
 left.classList.add("fas");
 left.classList.add("fa-chevron-left");
 lightbox.appendChild(left);
-
-left.addEventListener("click", function() {
-    slide(-1);
-});
 
 //Reset Lightbox
 function resetLightbox() {
@@ -48,11 +47,12 @@ function createLightbox (mediaCreated) {
     //Add image or video
     if (mediaCreated.type == "createImage") {
         const img = document.createElement("img");
-        img.alt = mediaCreated.image;     
+        img.alt = mediaCreated.name;     
         img.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.image;             
         newArticle.appendChild(img);
     } else if (mediaCreated.type == "createVideo") {
         const video = document.createElement("video");
+        video.title = mediaCreated.name;
         video.src = "Images/" + localStorage.getItem("Nom") + "/" + mediaCreated.video; 
         video.setAttribute("controls", "controls");           
         newArticle.appendChild(video);
@@ -68,14 +68,20 @@ function createLightbox (mediaCreated) {
     sectionMedias.appendChild(lightbox);
 }
 
+let visual;
+let link;
+
 //Show the selected image in the lightbox
 //Add class "vizualisation" which displays the selected image
 function showlightbox () {
-    const link = document.querySelectorAll(".medias-photographer__visual");
+    link = document.querySelectorAll(".medias-photographer__visual");
     const article = document.querySelectorAll(".lightbox__content article");
 
     for (let i = 0; i < link.length; i++) {
         link[i].addEventListener("click", function() {
+
+            visual = i;
+            console.log(i);
 
             for (let i = 0; i < article.length; i++) {
                 if (article[i].className === "visualization") {
@@ -106,7 +112,29 @@ function showlightbox () {
 //Open lightbox
 function open() {
     lightbox.style.display = "block";
+    lightbox.focus();
 }
+
+//Arrow navigation
+left.addEventListener("click", function() {
+    slide(-1);
+});
+
+right.addEventListener("click", function() {
+    slide(1);
+});
+
+document.addEventListener("keydown", function(event){
+    if((event.key === "ArrowLeft") && (visual !== 0)) {
+        slide(-1);
+        visual--;
+    }
+
+    if((event.key === "ArrowRight") && (visual !== link.length-1)) {
+        slide(1);
+        visual++;
+    }
+});
 
 //Create arrow to slide in the lightbox
 //Remove or add class "vizualisation"
@@ -124,7 +152,7 @@ function slide(n) {
             }
             //If image is the first
             if (j === 0) {
-                left.classList.remove("fa-chevron-left");;
+                left.classList.remove("fa-chevron-left");
             }
             //If image is the last
             if (j === article.length-1) {

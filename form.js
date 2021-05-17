@@ -12,11 +12,23 @@ function launchForm() {
     const form = document.getElementById("form__container");
     contact.addEventListener("click", function () {
         form.style.display = "block";
+        const input = document.getElementsByTagName("input");
+        input[0].focus();
     });
 
     //Close form
     cross.addEventListener("click", function(){
         form.style.display = "none";
+        const contact = document.getElementsByClassName("contact");
+        contact[0].focus();
+    });
+
+    form.addEventListener("keydown", function(event){
+        if(event.key === "Escape") {
+            form.style.display = "none";
+            const contact = document.getElementsByClassName("contact");
+            contact[0].focus();
+        }
     });
 
     //Submit
@@ -33,6 +45,9 @@ function launchForm() {
             console.log(label[i].textContent + " : " + response[i].value);
             response[i].value = "";
         }
+
+        const contact = document.getElementsByClassName("contact");
+        contact[0].focus();
     });
 }
 

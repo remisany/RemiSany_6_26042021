@@ -5,7 +5,8 @@ const selectContainer = document.getElementById("select-container");
 const selectItems = ["Popularité", "Date", "Titre"];
 
 //Create div "Selected element"
-const div1 = document.createElement("div");
+const div1 = document.createElement("a");
+div1.href = "#filter";
 div1.classList.add("select-selected");
 
 //Create span with the first element of the table
@@ -27,7 +28,8 @@ div2.classList.add("select-items");
 div2.classList.add("select-hide");
 
 for (let i = 0; i < selectItems.length; i++) {
-    const item = document.createElement("div");
+    const item = document.createElement("a");
+    item.href = "#filter";
     item.textContent = selectItems[i];
     
     //First pass erase "popularity"
@@ -52,7 +54,7 @@ for (let i = 0; i < selectItems.length; i++) {
             span1.textContent = this.textContent;
 
             //If .select-active exists, remove it
-            const itemSelected = document.querySelectorAll(".select-items div");
+            const itemSelected = document.querySelectorAll(".select-items a");
             for (let i = 0; i < itemSelected.length; i++) {
                 if (itemSelected[i].className === "select-active") {
                     itemSelected[i].classList.remove("select-active");
@@ -70,7 +72,7 @@ for (let i = 0; i < selectItems.length; i++) {
             localStorage.setItem("Filtre", this.textContent);
 
             //Addind .border and .radius depending on the configuration
-            const divItem = document.querySelectorAll(".select-items div");
+            const divItem = document.querySelectorAll(".select-items a");
             if (this.textContent === "Popularité") {
                 divItem[1].classList.add("border");
                 divItem[2].classList.add("radius");
