@@ -130,11 +130,13 @@ function photographerProfile(photographers) {
     }
 }
 
+//Flag initialized to 0 allows you to create the objects and display them
 let flag = 0;
 let mediasCreated = [];
 const sectionMedias = document.getElementById("medias");
  
 function photographerMedia(medias) {
+    //Frist pass flag === 0;
     if (flag === 0) {
         createAllMedia(medias);
         likesPrice();
@@ -142,6 +144,7 @@ function photographerMedia(medias) {
         filter(mediasCreated);
     }
 
+    //Create the objects
     function createAllMedia (medias) {
         class mediaFactory {
             constructor () {
@@ -160,6 +163,7 @@ function photographerMedia(medias) {
             }
         }
 
+        //Image object
         class createImage {
             constructor(medias) {
                 this.type = "createImage";
@@ -175,6 +179,7 @@ function photographerMedia(medias) {
             }
         }
 
+        //Video object
         class createVideo {
             constructor(medias) {
                 this.type = "createVideo";
@@ -190,8 +195,10 @@ function photographerMedia(medias) {
             }
         }
 
+        //Id storage
         const id = localStorage.getItem("Id");
 
+        //Creation of the table with the created objects
         for (let i = 0; i < medias.length; i++) {
             if (medias[i].photographerId == id) {
                 let factory = new mediaFactory();
@@ -200,10 +207,12 @@ function photographerMedia(medias) {
             }
         }
 
+        //Flag = 1;
         flag = 1;
         filter(mediasCreated);
     }
 
+    //Collect the filter
     function filter(mediasCreated){
         const filter = localStorage.getItem("Filtre");
 
@@ -223,10 +232,12 @@ function photographerMedia(medias) {
             });
         }
 
+        //Display reset
         while (sectionMedias.firstChild) {
             sectionMedias.removeChild(sectionMedias.firstChild);
         }
 
+        //Lightbox reset
         resetLightbox();
 
         for (let i = 0; i < mediasCreated.length; i++) {
@@ -235,15 +246,17 @@ function photographerMedia(medias) {
         }
     }
 
+    //Display the photographs according to the filter
     function showMedias(mediaCreated) {
-        //article "medias-photographer"
+        ////Create article containing the photo, the title and number of likes
         const article = document.createElement("article");
         article.classList.add("medias-photographer");
             
-        //link "__visual"
+        //Create link "medias-photographer__visual" containing the photo (redirect to lightbox)
         const a1 = document.createElement("a");
         a1.classList.add("medias-photographer__visual");
 
+        //If the object is image or video
         if (mediaCreated.type == "createImage") {
             const img = document.createElement("img");
             img.classList.add("medias-photographer__visual__img");
@@ -262,7 +275,7 @@ function photographerMedia(medias) {
 
         article.appendChild(a1);
 
-        //static "__infos"
+        //Create p "medias-photographer__infos" width the title
         const div1 = document.createElement("div");
         div1.classList.add("medias-photographer__infos");
         const p1 = document.createElement("p");
@@ -273,7 +286,7 @@ function photographerMedia(medias) {
 
         article.appendChild(div1);
 
-        //static "__infos__likes"
+        //Create link containing likes
         const a2 = document.createElement("a");
         a2.classList.add("medias-photographer__infos__likes");
 
@@ -281,7 +294,7 @@ function photographerMedia(medias) {
         p2.textContent = mediaCreated.likes;
         a2.appendChild(p2);
 
-        //heart icon
+        //Heart icon
         const span = document.createElement("span");
         span.classList.add("fas");
         span.classList.add("fa-heart");
@@ -296,6 +309,7 @@ function photographerMedia(medias) {
 
     likes();
 
+    //Like counter
     function likes() {
         const link = document.querySelectorAll(".medias-photographer__infos__likes");
     
@@ -309,6 +323,7 @@ function photographerMedia(medias) {
         }
     }
 
+    //Create like (at the end of the page)
     function likesPrice() {
         const sectionLikesPrice = document.getElementById("likesPrice");
         const p3 = document.getElementById("likesPrice__price");
@@ -327,7 +342,7 @@ function photographerMedia(medias) {
 
         sectionLikesPrice.insertBefore(p1, p3);
 
-        //Heart
+        //Heart icon
         const span = document.createElement("span");
         span.classList.add("fas");
         span.classList.add("fa-heart");

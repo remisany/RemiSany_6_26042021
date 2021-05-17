@@ -1,14 +1,19 @@
+//Creation of the box containing the three filters
+
 const selectContainer = document.getElementById("select-container");
+//Creation of an array containing the filters
 const selectItems = ["Popularité", "Date", "Titre"];
 
-//Selected element
+//Create div "Selected element"
 const div1 = document.createElement("div");
 div1.classList.add("select-selected");
 
+//Create span with the first element of the table
 const span1 = document.createElement("span");
 span1.textContent = selectItems[0];
 div1.appendChild(span1);
 
+//Create span with the down arrow (open)
 const span2 = document.createElement("span");
 span2.classList.add("fas");
 span2.classList.add("fa-chevron-down");
@@ -16,7 +21,7 @@ div1.appendChild(span2);
 
 selectContainer.appendChild(div1);
 
-//Ajout de la div2 avec .select-items et .select-hide
+//Create div with .select-items and .select-hide
 const div2 = document.createElement("div");
 div2.classList.add("select-items");
 div2.classList.add("select-hide");
@@ -25,27 +30,28 @@ for (let i = 0; i < selectItems.length; i++) {
     const item = document.createElement("div");
     item.textContent = selectItems[i];
     
-    //Premier passage effacer "popularité"
+    //First pass erase "popularity"
     if (item.textContent == selectItems[0]) {
         item.classList.add("select-active");
         localStorage.setItem("Filtre", item.textContent);
     }
 
-    //Premier passage ajout .border
+    //First pass adding .border
     if (item.textContent == selectItems[1]) {
         item.classList.add("border");
     }
 
-    //Premier passage ajout .radius
+    //First pass adding .radius
     if (item.textContent == selectItems[2]) {
         item.classList.add("radius");
     }
 
+    //Listen to clicks when choosing the filter
     item.addEventListener("click", function() {
         for (let i = 0; i < selectItems.length; i++) {
             span1.textContent = this.textContent;
 
-            //Si ".select-active" existe, l'enlever
+            //If .select-active exists, remove it
             const itemSelected = document.querySelectorAll(".select-items div");
             for (let i = 0; i < itemSelected.length; i++) {
                 if (itemSelected[i].className === "select-active") {
@@ -59,11 +65,11 @@ for (let i = 0; i < selectItems.length; i++) {
                 }
             }
 
-            //Ajout de .selected à l'élément actuellement sélectionné
+            //Adding .selected to the currently selected item
             this.classList.add("select-active");
             localStorage.setItem("Filtre", this.textContent);
 
-            //Ajout de .border
+            //Addind .border and .radius depending on the configuration
             const divItem = document.querySelectorAll(".select-items div");
             if (this.textContent === "Popularité") {
                 divItem[1].classList.add("border");
@@ -86,6 +92,7 @@ for (let i = 0; i < selectItems.length; i++) {
 
 selectContainer.appendChild(div2);
 
+//Listen clicks when opening the filter box
 div1.addEventListener("click", function(e) {
     e.stopPropagation();
 
@@ -98,20 +105,21 @@ div1.addEventListener("click", function(e) {
 
 });
 
-
+//Close the filter box
 function closeAllSelect(item) {
     let index0 = [];
 
     const selectSelected = document.getElementsByClassName("select-selected");
 
     for (let i = 0; i < selectSelected.length; i++) {
-        //Si click sur élément déjà selectionné
+        //If click on element already selected
         if (item == selectSelected[i]) {
             index0.push(i);
         } else {
             selectSelected[i].classList.remove("select-arrow-active");
             span2.classList.remove("fa-chevron-up");
             span2.classList.add("fa-chevron-down");
+            //Calls the function to sort according to the selected filter
             photographerMedia();
         }
     }
@@ -119,9 +127,10 @@ function closeAllSelect(item) {
     const selectItems = document.getElementsByClassName("select-items");
 
     for (let i = 0; i < selectItems.length; i++) {
-        //Si click sur élément déjà selectionné
+        //If click on element already selected
         if (index0.indexOf(i)) {
             selectItems[i].classList.add("select-hide");
+            //Calls the function to sort according to the selected filter
             photographerMedia();
         }
     }
