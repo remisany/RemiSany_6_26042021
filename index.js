@@ -84,7 +84,7 @@ function initialize(photographers) {
         //Create nav "photographer-tags" containing tags
         const nav = document.createElement("nav");
         nav.classList.add("photographerIndex-tags");
-        //nav.setAttribute("aria-label", photographer.name + " navigation tags");
+        nav.setAttribute("aria-label", photographer.name + " navigation tags");
         const ul = document.createElement("ul");
         ul.classList.add("tags-container");
         ul.classList.add("nav");
