@@ -17,7 +17,7 @@
   #select-container {
     position: relative;
     width: 17rem;
-    & div, & span {
+    & a, & span {
       font-size: 1.8rem;
       font-weight: 700;
       cursor: pointer;
@@ -45,9 +45,8 @@
       right: 0;
       z-index: 99;
       border-radius: 0 0 .5rem .5rem;
-      //padding-left: 1rem;
-      //padding-right: 1rem;
-      & div {
+      & a {
+        display: block;
         color: #FFF;
         padding: 1.4rem 2rem;
         position: relative;
@@ -61,7 +60,7 @@
       display: none;
     }
     &-active {
-      display: none;
+      display: none !important;
     }
     &-arrow-active {
       border-radius: .5rem .5rem 0 0;
@@ -84,6 +83,7 @@
       top: 0rem;
     }
     &::after {
+      right: 2rem;
       bottom: 0rem;
     }
   }
