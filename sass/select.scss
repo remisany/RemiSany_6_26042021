@@ -33,7 +33,7 @@
       border-radius: .5rem;
       color: #FFF;
       padding: 1.4rem 2rem;
-      &:hover {
+      &:hover, &:focus {
         background-color: $secondary;
         color: black;
       }
@@ -51,7 +51,7 @@
         color: #FFF;
         padding: 1.4rem 2rem;
         position: relative;
-        &:hover {
+        &:hover, &:focus {
           background-color: $secondary;
           color: black;
         }
