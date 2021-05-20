@@ -12,7 +12,7 @@ cross.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
-document.addEventListener("keydown", function(event){
+sectionMedias.addEventListener("keydown", function(event){
     if(event.key === "Escape") {
         lightbox.style.display = "none";
         link[visual].focus();

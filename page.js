@@ -292,7 +292,7 @@ function photographerMedia(medias) {
         //Create link containing likes
         const a2 = document.createElement("a");
         a2.classList.add("medias-photographer__infos__likes");
-        a2.id = mediaCreated.name;
+        article.id = mediaCreated.name;
         a2.href = "#" + mediaCreated.name;
 
         const p2 = document.createElement("p");
