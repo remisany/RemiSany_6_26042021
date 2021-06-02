@@ -1,4 +1,4 @@
-function launchForm() {
+export function launchForm() {
 
     //Name recovery
     const div = document.getElementById("form__header");

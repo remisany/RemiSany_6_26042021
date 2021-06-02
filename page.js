@@ -1,3 +1,11 @@
+//Import function form.js
+import {launchForm} from "./form.js";
+
+//Import function lightbox.js
+import {escapeLightbox, resetLightbox} from "./lightbox.js";
+import {createLightbox} from "./lightbox.js";
+import {showlightbox} from "./lightbox.js";
+
 //Data recovery
 fetch("FishEyeDataFR.json")
     .then(function(response) {
@@ -135,8 +143,10 @@ function photographerProfile(photographers) {
 let flag = 0;
 let mediasCreated = [];
 const sectionMedias = document.getElementById("medias");
+
+escapeLightbox(sectionMedias);
  
-function photographerMedia(medias) {
+export function photographerMedia(medias) {
     //Frist pass flag === 0;
     if (flag === 0) {
         createAllMedia(medias);

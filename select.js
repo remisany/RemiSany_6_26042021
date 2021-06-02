@@ -1,5 +1,7 @@
-//Creation of the box containing the three filters
+//Import function page.js
+import {photographerMedia} from "./page.js";
 
+//Creation of the box containing the three filters
 const selectContainer = document.getElementById("select-container");
 //Creation of an array containing the filters
 const selectItems = ["Popularité", "Date", "Titre"];

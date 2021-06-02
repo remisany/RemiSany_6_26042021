@@ -12,12 +12,14 @@ cross.addEventListener("click", function() {
     lightbox.style.display = "none";
 });
 
-sectionMedias.addEventListener("keydown", function(event){
-    if(event.key === "Escape") {
-        lightbox.style.display = "none";
-        link[visual].focus();
-    }
-});
+export function escapeLightbox(sectionMedias) {
+    sectionMedias.addEventListener("keydown", function(event){
+        if(event.key === "Escape") {
+            lightbox.style.display = "none";
+            link[visual].focus();
+        }
+    });
+}
 
 //Create right arrow 
 const right = document.createElement("a");
@@ -32,13 +34,13 @@ left.classList.add("fa-chevron-left");
 lightbox.appendChild(left);
 
 //Reset Lightbox
-function resetLightbox() {
+export function resetLightbox() {
     while (lightboxContent.firstChild) {
         lightboxContent.removeChild(lightboxContent.firstChild);
     }
 }
 
-function createLightbox (mediaCreated) {
+export function createLightbox (mediaCreated) {
     const sectionMedias = document.getElementById("medias");
 
     //Create article containing photo or video and title
@@ -73,7 +75,7 @@ let link;
 
 //Show the selected image in the lightbox
 //Add class "vizualisation" which displays the selected image
-function showlightbox () {
+export function showlightbox () {
     link = document.querySelectorAll(".medias-photographer__visual");
     const article = document.querySelectorAll(".lightbox__content article");
 
